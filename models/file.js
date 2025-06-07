@@ -1,22 +1,24 @@
-module.exports = (sequelize, DataTypes) => {
-    const File = sequelize.define('File', {
-      filename: {
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/databaseConfig');
+
+const File = sequelize.define('File', {
+    filename: {
         type: DataTypes.STRING,
         allowNull: false
-      },
-      path: {
+    },
+    path: {
         type: DataTypes.STRING,
         allowNull: false
-      },
-      mimetype: {
+    },
+    mimetype: {
         type: DataTypes.STRING,
         allowNull: false
-      },
-      size: {
+    },
+    size: {
         type: DataTypes.INTEGER,
         allowNull: false
-      }
-    });
-  
-    return File;
-  };
+    }
+});
+
+
+module.exports = File;

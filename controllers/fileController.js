@@ -39,9 +39,18 @@ const downloadFile = async (req, res) => {
   }
 };
 
+const getAllFiles = async (req, res) => {
+  try {
+    const files = await db.File.findAll();
+    res.render('upload', { files });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error retrieving files');
+  }
+};
 
 module.exports = {
   uploadFile,
   downloadFile,
- 
+  getAllFiles
 };
